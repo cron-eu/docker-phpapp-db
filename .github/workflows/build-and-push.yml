@@ -50,3 +50,11 @@ jobs:
 
       - name: "Docker push mariadb-${{ matrix.mariadb-version }}"
         run: make build BUILDX_OPTIONS=--push MARIADB_VERSION=${{ matrix.mariadb-version }}
+
+      - name: "Update Docker Hub Description (croneu/phpapp-db)"
+        uses: peter-evans/dockerhub-description@v2
+        with:
+          username: ${{ secrets.DOCKERHUB_USERNAME }}
+          password: ${{ secrets.DOCKERHUB_TOKEN }}
+          repository: croneu/phpapp-db
+          short-description: ${{ github.event.repository.description }}
