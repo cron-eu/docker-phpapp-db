@@ -55,6 +55,8 @@ jobs:
         uses: peter-evans/dockerhub-description@v2
         with:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
-          password: ${{ secrets.DOCKERHUB_TOKEN }}
+          # Note: the "TOKEN" does not work for the docker hub API yet, see
+          # https://github.com/peter-evans/dockerhub-description/issues/10
+          password: ${{ secrets.DOCKERHUB_PASSWORD }}
           repository: croneu/phpapp-db
           short-description: ${{ github.event.repository.description }}
