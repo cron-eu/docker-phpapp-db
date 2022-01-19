@@ -4,7 +4,8 @@
 
 Part of the `docker-phpapp` image suite.
 
-See https://github.com/cron-eu/docker-phpapp-php/README.md for a complete explanation.
+See https://github.com/cron-eu/docker-phpapp-php/ for a complete explanation and
+example usage.
 
 This is the MySQL database container, with images for **amd64** and **arm64**
 (i.e. also run on Apple M1).
