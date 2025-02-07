@@ -1,0 +1,9 @@
+# See https://hub.docker.com/_/mysql/
+
+ARG MYSQL_VERSION=8.0
+
+FROM mysql:${MYSQL_VERSION}
+
+ADD mysql.cnf /etc/mysql/conf.d/z99-docker.cnf
+RUN chown mysql:mysql /etc/mysql/conf.d/z99-docker.cnf \
+    && chmod 0644 /etc/mysql/conf.d/z99-docker.cnf

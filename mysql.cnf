@@ -1,0 +1,57 @@
+[mysqld]
+
+# Defaults noted here are from MySQL 8.0 (official docker image)
+
+#################################################
+## Buffers
+
+# default is 8M
+key_buffer_size = 128M
+
+# default is 128M
+innodb_buffer_pool_size = 512M
+
+# default is 100M
+innodb_redo_log_capacity = 512M
+
+# default is 16M
+innodb_log_buffer_size = 128M
+
+# default is 16M
+tmp_table_size = 128M
+
+# default is 16M
+max_heap_table_size = 128M
+
+# default is 256k
+join_buffer_size = 4M
+
+# default is 256k
+sort_buffer_size = 4M
+
+# default is 128k
+read_buffer_size = 1M
+
+# default is 256k
+read_rnd_buffer_size = 1M
+
+#################################################
+## Misc
+
+# default is 1
+innodb_flush_log_at_trx_commit = 0
+
+# default is fsync
+innodb_flush_method = O_DSYNC
+
+#################################################
+## Connections
+
+# default is 151
+max_connections = 20
+
+#################################################
+## TYPO3 compatibility
+
+# default is ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION
+sql_mode = ""
