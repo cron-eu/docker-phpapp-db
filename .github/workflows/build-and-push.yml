@@ -10,11 +10,6 @@ jobs:
   build_and_push:
     runs-on: ubuntu-latest
 
-    strategy:
-      matrix:
-        include:
-          - mariadb-version: 10.7
-
     steps:
       - name: "Checkout Sourcecode"
         uses: actions/checkout@v2
@@ -39,17 +34,14 @@ jobs:
             "${{ runner.os }}-buildx-${{ matrix.mariadb-version }}-"
             "${{ runner.os }}-buildx-"
 
-      - name: "Docker build mariadb-${{ matrix.mariadb-version }}"
-        run: make build MARIADB_VERSION=${{ matrix.mariadb-version }}
-
       - name: "Login to DockerHub"
         uses: docker/login-action@v1
         with:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
 
-      - name: "Docker push mariadb-${{ matrix.mariadb-version }}"
-        run: make build BUILDX_OPTIONS=--push MARIADB_VERSION=${{ matrix.mariadb-version }}
+      - name: "Docker build and push"
+        run: make build BUILDX_OPTIONS=--push
 
       - name: "Update Docker Hub Description (croneu/phpapp-db)"
         uses: peter-evans/dockerhub-description@v2
