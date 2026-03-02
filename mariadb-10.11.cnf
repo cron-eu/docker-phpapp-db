@@ -64,11 +64,11 @@ query_cache_type = 1
 # default is OFF
 slow_query_log = 1
 
-# default is a random filename
-slow_query_log_file = /dev/stderr
+# default is in HOME of mysql (var/lib/mysql)
+slow_query_log_file=/var/log/mysql/slow.log
 
-# default is 10
-long_query_time = 1
+# default is 10, in seconds
+long_query_time = 1.0
 
 #################################################
 ## Connections
