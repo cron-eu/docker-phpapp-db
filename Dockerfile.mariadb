@@ -1,9 +1,10 @@
 # See https://hub.docker.com/_/mariadb/
 
-ARG MARIADB_VERSION=10.7
+ARG MARIADB_RELEASE=10.11
 
-FROM mariadb:${MARIADB_VERSION}
+FROM mariadb:${MARIADB_RELEASE}
+ARG MARIADB_RELEASE
 
-ADD mariadb.cnf /etc/mysql/conf.d/z99-docker.cnf
+ADD mariadb-${MARIADB_RELEASE}.cnf /etc/mysql/conf.d/z99-docker.cnf
 RUN chown mysql:mysql /etc/mysql/conf.d/z99-docker.cnf \
     && chmod 0644 /etc/mysql/conf.d/z99-docker.cnf

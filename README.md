@@ -13,11 +13,13 @@ This is the MySQL database container, with images for **amd64** and **arm64**
 ## Tags available
 
 * `croneu/phpapp-db:mysql-8.4`
+* `croneu/phpapp-db:mariadb-11.8`
+* `croneu/phpapp-db:mariadb-10.11`
 * `croneu/phpapp-db:mariadb-10.7` - no longer maintained
 * `croneu/phpapp-db:mysql-8.0` - no longer maintained
 
 This is just a pre-configured alternative to the upstream official images (**MariaDB** or **MySQL**).
-This  allows us to use it straight on for TYPO3 projects without having to include any further
+This allows us to use it straight on for TYPO3 projects without having to include any further
 configuration or do any performance tuning.
 
 ## Settings
@@ -26,7 +28,7 @@ See upstream:
 * https://hub.docker.com/_/mariadb
 * https://hub.docker.com/_/mysql
 
-Example `docker-compose.yaml` for MySQL 8.0:
+Example `docker-compose.yaml` for MySQL 8.4:
 
 ```
   mysql:
@@ -46,7 +48,7 @@ Example `docker-compose.yaml` for MariaDB:
 
 ```
   mysql:
-    image: croneu/phpapp-db:mariadb-10.7
+    image: croneu/phpapp-db:mariadb-10.11
     ports:
       - 13306:3306
     volumes:
