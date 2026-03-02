@@ -17,7 +17,7 @@ key_buffer_size = 200M
 query_cache_size = 100M
 
 # default is 128M
-innodb_buffer_pool_size = 250M
+innodb_buffer_pool_size = 256M
 
 # default is 16M
 tmp_table_size = 200M
