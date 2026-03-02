@@ -7,7 +7,7 @@ MARIADB_RELEASE=11.8
 MARIADB_RELEASE_LEGACY=10.11
 
 # MySQL:
-MYSQL_VERSION=8.4
+MYSQL_RELEASE=8.4
 
 #BUILDX_OPTIONS=--push
 DOCKER_CACHE=--cache-from "type=local,src=.buildx-cache" --cache-to "type=local,dest=.buildx-cache"
@@ -28,6 +28,6 @@ build-mysql:
 	docker buildx build $(DOCKER_CACHE) $(BUILDX_OPTIONS) \
 		--platform $(PLATFORMS) \
 		-f Dockerfile.mysql \
-		--build-arg MYSQL_VERSION=$(MYSQL_VERSION) --tag croneu/phpapp-db:mysql-$(MYSQL_VERSION) .
+		--build-arg MYSQL_RELEASE=$(MYSQL_RELEASE) --tag croneu/phpapp-db:mysql-$(MYSQL_RELEASE) .
 
 build: build-mysql build-mariadb build-mariadb-legacy
